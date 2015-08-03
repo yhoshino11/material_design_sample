@@ -13,11 +13,13 @@
             '履歴
             b.caret
           ul.dropdown-menu
-            li= link_to '代官山', root_path
-            li= link_to 'みなとみらい', root_path
-            li= link_to '銀座', root_path
-            li.divider
-            li= link_to '新規作成', root_path
+            - unless Hobby.exists?
+              li= link_to '新規作成', new_hobby_path
+            - else
+              - Hobby.all.each do |hobby|
+                li= link_to hobby.title
+              li.divider
+              li= link_to '新規作成', new_hobby_path
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           = link_to '#', class: 'dropdown-toggle', data: { target: '#', toggle: 'dropdown' } do

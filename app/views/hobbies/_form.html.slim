@@ -1,18 +1,18 @@
 = form_for @hobby do |f|
   - if @hobby.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@hobby.errors.count, "error")} prohibited this hobby from being saved:"
       ul
-        - @hobby.errors.full_messages.each do |message|
-          li = message
+        - @hobby.errors.messages.each do |key, message|
+          li = message.first
 
   .field
-    = f.label :url
-    = f.text_field :url
+    = f.text_field :url, class: 'form-control empty', placeholder: 'サムネイル画像のURL'
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: 'form-control empty', placeholder: 'タイトル : (例:代官山のカフェ♪'
   .field
-    = f.label :description
-    = f.text_area :description
-  .actions = f.submit
+    = f.text_area :description, class: 'form-control empty', placeholder: '説明', cols: 5, rows: 10
+  .actions = f.submit '投稿', class: 'btn btn-success', style: 'float: left;'
+  - if params[:id].nil?
+    = link_to 'Cancel', hobbies_path, class: 'btn btn-flat btn-default'
+  - else
+    = link_to 'Cancel', @hobby, class: 'btn btn-flat btn-default'

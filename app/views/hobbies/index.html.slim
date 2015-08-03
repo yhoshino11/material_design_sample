@@ -1,25 +1,5 @@
-h1 Listing hobbies
-
-table
-  thead
-    tr
-      th Url
-      th Title
-      th Description
-      th
-      th
-      th
-
-  tbody
+.container
+  .row
     - @hobbies.each do |hobby|
-      tr
-        td = hobby.url
-        td = hobby.title
-        td = hobby.description
-        td = link_to 'Show', hobby
-        td = link_to 'Edit', edit_hobby_path(hobby)
-        td = link_to 'Destroy', hobby, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Hobby', new_hobby_path
+      .col-md-3= link_to hobby do
+        = render partial: 'item', locals: { hobby: hobby }

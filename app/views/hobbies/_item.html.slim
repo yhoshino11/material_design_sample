@@ -1,0 +1,21 @@
+.card
+  .card-height-indicator
+  .card-content
+    .card-image
+      .thumbnail
+        = image_tag hobby.url
+      h3.card-image-headline= hobby.title
+    .card-body
+      - if params[:id].nil?
+        p= excerpt(hobby.description, hobby.description.first, radius: 30)
+      - else
+        p= hobby.description
+    footer.card-footer
+      - if params[:id].nil?
+        = link_to hobby do
+          = button_tag 'Detail', class: 'btn btn-flat btn-primary'
+      - else
+        = link_to edit_hobby_path(hobby) do
+          = button_tag 'Edit', class: 'btn btn-flat btn-success'
+      = link_to hobby, data: { confirm: 'Are you sure?' }, method: :delete do
+        = button_tag 'Delete', class: 'btn btn-flat btn-warning'

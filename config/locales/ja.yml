@@ -5,3 +5,14 @@ ja:
   nav:
     home: ホーム
     log: 履歴
+  activerecord:
+    errors:
+      models:
+        hobby:
+          attributes:
+            url:
+              blank: 画像のURLがありません
+            title:
+              blank: タイトルがありません
+            description:
+              blank: 説明がありません
