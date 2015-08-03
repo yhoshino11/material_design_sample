@@ -1,6 +1,7 @@
 //= require jquery
-//= require bootstrap-sprockets // この行を追加
-//= require bootstrap-material-design/dist/js/material // この行を追加
+// 以下の２行を挿入
+//= require bootstrap-sprockets
+//= require bootstrap-material-design/dist/js/material
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

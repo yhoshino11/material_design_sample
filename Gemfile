@@ -7,4 +7,5 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'slim-rails'
 gem 'bootstrap-sass' # この行を追加
