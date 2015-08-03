@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Url:
+  = @hobby.url
+p
+  strong Title:
+  = @hobby.title
+p
+  strong Description:
+  = @hobby.description
+
+= link_to 'Edit', edit_hobby_path(@hobby)
+'|
+= link_to 'Back', hobbies_path

@@ -1,0 +1,25 @@
+h1 Listing hobbies
+
+table
+  thead
+    tr
+      th Url
+      th Title
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @hobbies.each do |hobby|
+      tr
+        td = hobby.url
+        td = hobby.title
+        td = hobby.description
+        td = link_to 'Show', hobby
+        td = link_to 'Edit', edit_hobby_path(hobby)
+        td = link_to 'Destroy', hobby, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Hobby', new_hobby_path

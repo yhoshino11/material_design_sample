@@ -1,0 +1,18 @@
+= form_for @hobby do |f|
+  - if @hobby.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@hobby.errors.count, "error")} prohibited this hobby from being saved:"
+      ul
+        - @hobby.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit
